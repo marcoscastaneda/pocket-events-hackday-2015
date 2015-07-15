@@ -16,8 +16,9 @@ class SettingsTableView: UITableViewController {
     @IBOutlet weak var imageViewUser: UIImageView!
     
     @IBOutlet weak var labelName: UILabel!
-    
-    @IBOutlet weak var labelAlias: UILabel!
+    @IBOutlet weak var labelTitle: UILabel!
+
+    @IBOutlet weak var cellUser: UITableViewCell!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +30,7 @@ class SettingsTableView: UITableViewController {
     override func viewWillAppear(animated: Bool) {
         self.navigationItem.title = "Settings"
         self.labelName.text = user.objectForKey("name") as? String
-        self.labelAlias.text = (user["username"] as? String)?.uppercaseString
+        self.labelTitle.text = user["jobTitle"] as? String
         
         let userImageFile = self.user["picture"] as? PFFile
         
@@ -42,7 +43,18 @@ class SettingsTableView: UITableViewController {
                 if error == nil {
                     if let imageData = imageData {
                         let image = UIImage(data:imageData)
+                        
+                        // Set circle image as image
                         self.imageViewUser.image = image
+                        
+                        self.imageViewUser.layer.borderWidth = 1.2
+                        self.imageViewUser.layer.borderColor = UIColor.whiteColor().CGColor
+                        
+                        var cellBackground = UIImageView(image: image!.applyDarkEffect())
+                        cellBackground.contentMode = UIViewContentMode.ScaleAspectFill
+                        cellBackground.clipsToBounds = true
+                        self.cellUser.backgroundView = cellBackground
+                        
                         }
                 }
                 

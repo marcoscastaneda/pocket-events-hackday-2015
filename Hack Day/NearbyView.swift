@@ -8,35 +8,26 @@
 
 import UIKit
 import MapKit
-import CoreLocation
 
 class NearbyView: UIViewController {
     
-    // MARK: - location manager to authorize user location for Maps app
-    var locationManager = CLLocationManager()
-    
-    func checkLocationAuthorizationStatus() {
-        if CLLocationManager.authorizationStatus() == .AuthorizedWhenInUse {
-            mapView.showsUserLocation = true
-        } else {
-            locationManager.requestWhenInUseAuthorization()
-        }
-    }
-
     @IBOutlet weak var mapView: MKMapView!
+    
+    let regionRadius: CLLocationDistance = 4000
+    func centerMapOnLocation(location: CLLocation) {
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
+            regionRadius * 2.0, regionRadius * 2.0)
+        mapView.setRegion(coordinateRegion, animated: true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let initialLocation = CLLocation(latitude:40.473056,  longitude:88.958333)
-        
-        let regionRadius: CLLocationDistance = 1000
-        func centerMapOnLocation(location: CLLocation) {
-            let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
-                regionRadius * 2.0, regionRadius * 2.0)
-            mapView.setRegion(coordinateRegion, animated: true)
-        }
 
+        // set initial location in Honolulu
+        let initialLocation = CLLocation(latitude:40.493056, longitude:-88.988333)
+        
+        centerMapOnLocation(initialLocation)
+        
         // Do any additional setup after loading the view.
     }
 
@@ -50,17 +41,7 @@ class NearbyView: UIViewController {
     }
     
     override func viewDidAppear(animated: Bool) {
-        checkLocationAuthorizationStatus()
-    }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
-    */
 
 }

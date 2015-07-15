@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		A592A8AD1B56B40000A0FDE5 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A592A8AC1B56B40000A0FDE5 /* RootView.swift */; };
+		BD103C3D1B56F9F50017DF5A /* UIImageEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD103C3C1B56F9F50017DF5A /* UIImageEffects.swift */; };
+		BD103C3F1B57052F0017DF5A /* AddEventTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD103C3E1B57052F0017DF5A /* AddEventTableView.swift */; };
 		BDE3DC191B56999F0007F9DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE3DC181B56999F0007F9DA /* AppDelegate.swift */; };
 		BDE3DC1E1B56999F0007F9DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDE3DC1C1B56999F0007F9DA /* Main.storyboard */; };
 		BDE3DC201B56999F0007F9DA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDE3DC1F1B56999F0007F9DA /* Images.xcassets */; };
@@ -55,6 +57,8 @@
 
 /* Begin PBXFileReference section */
 		A592A8AC1B56B40000A0FDE5 /* RootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		BD103C3C1B56F9F50017DF5A /* UIImageEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImageEffects.swift; sourceTree = "<group>"; };
+		BD103C3E1B57052F0017DF5A /* AddEventTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEventTableView.swift; sourceTree = "<group>"; };
 		BDE3DC131B56999F0007F9DA /* Hack Day.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hack Day.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDE3DC171B56999F0007F9DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDE3DC181B56999F0007F9DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -172,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				BDE3DC181B56999F0007F9DA /* AppDelegate.swift */,
+				BD103C3C1B56F9F50017DF5A /* UIImageEffects.swift */,
 				BDE3DC171B56999F0007F9DA /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -229,6 +234,7 @@
 				BDE3DC6B1B56CC000007F9DA /* DiscoverTableView.swift */,
 				BDE3DC721B56CC2D0007F9DA /* NearbyView.swift */,
 				BDE3DC701B56CC1F0007F9DA /* SettingsTableView.swift */,
+				BD103C3E1B57052F0017DF5A /* AddEventTableView.swift */,
 			);
 			name = "User Views";
 			sourceTree = "<group>";
@@ -349,11 +355,13 @@
 			files = (
 				BDE3DC711B56CC1F0007F9DA /* SettingsTableView.swift in Sources */,
 				BDE3DC191B56999F0007F9DA /* AppDelegate.swift in Sources */,
+				BD103C3D1B56F9F50017DF5A /* UIImageEffects.swift in Sources */,
 				BDE3DC581B56BA8E0007F9DA /* GlobalStyles.swift in Sources */,
 				BDE3DC5E1B56BD4E0007F9DA /* LoginView.swift in Sources */,
 				A592A8AD1B56B40000A0FDE5 /* RootView.swift in Sources */,
 				BDE3DC731B56CC2D0007F9DA /* NearbyView.swift in Sources */,
 				BDE3DC6C1B56CC000007F9DA /* DiscoverTableView.swift in Sources */,
+				BD103C3F1B57052F0017DF5A /* AddEventTableView.swift in Sources */,
 				BDE3DC771B56D6D80007F9DA /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
