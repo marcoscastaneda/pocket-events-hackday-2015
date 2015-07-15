@@ -11,8 +11,14 @@ import Parse
 
 class SettingsTableView: UITableViewController {
     
-    let user = PFUser.currentUser()
+    let user = PFUser.currentUser()!
 
+    @IBOutlet weak var imageViewUser: UIImageView!
+    
+    @IBOutlet weak var labelName: UILabel!
+    
+    @IBOutlet weak var labelAlias: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,6 +28,27 @@ class SettingsTableView: UITableViewController {
     
     override func viewWillAppear(animated: Bool) {
         self.navigationItem.title = "Settings"
+        self.labelName.text = user.objectForKey("name") as? String
+        self.labelAlias.text = (user["username"] as? String)?.uppercaseString
+        
+        let userImageFile = self.user["picture"] as? PFFile
+        
+        self.imageViewUser.layer.cornerRadius = self.imageViewUser.frame.size.height/2
+        self.imageViewUser.layer.masksToBounds = true
+        
+        if userImageFile != nil {
+            userImageFile!.getDataInBackgroundWithBlock {
+                (imageData: NSData?, error: NSError?) -> Void in
+                if error == nil {
+                    if let imageData = imageData {
+                        let image = UIImage(data:imageData)
+                        self.imageViewUser.image = image
+                        }
+                }
+                
+            }
+  
+        }
     }
 
     override func didReceiveMemoryWarning() {

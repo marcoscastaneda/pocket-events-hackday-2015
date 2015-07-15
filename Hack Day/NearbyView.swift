@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class NearbyView: UIViewController {
     
@@ -27,7 +28,7 @@ class NearbyView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let initialLocation = CLLocation(latitude: 21.282778, longitude: -157.829444)
+        let initialLocation = CLLocation(latitude:40.473056,  longitude:88.958333)
         
         let regionRadius: CLLocationDistance = 1000
         func centerMapOnLocation(location: CLLocation) {
