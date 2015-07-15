@@ -14,7 +14,7 @@ class GlobalStyles
         static var stateFarmRed = UIColor(red: 204/255, green: 7/255, blue: 23/255, alpha: 1)
     }
     struct Fonts {
-        static var headerMainFont = UIFont(name: "Helvetica Neue", size: 18)
+        static var headerMainFont = UIFont(name: "Helvetica Neue", size: 17)
         static var headerBoldFont = UIFont(name: "Helvetica Neue", size: 17)
     }
 }

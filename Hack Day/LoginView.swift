@@ -41,10 +41,17 @@ class LoginView: UITableViewController {
     }
     
     @IBAction func loginUser(sender: AnyObject) {
+        let loadingNotification = MBProgressHUD.showHUDAddedTo(self.view, animated: true)
+        loadingNotification.mode = MBProgressHUDMode.Indeterminate
+        loadingNotification.labelFont = GlobalStyles.Fonts.headerMainFont
+        loadingNotification.labelText = "Loading"
+        
         PFUser.logInWithUsernameInBackground(self.textFieldAlias.text.lowercaseString, password: self.textFieldPassword.text) {
             (user: PFUser?, error: NSError?) -> Void in
             if user != nil {
                 // Do stuff after successful login.
+                
+                loadingNotification.hide(true)
                 
                 self.performSegueWithIdentifier("loginSuccess", sender: self)
                 

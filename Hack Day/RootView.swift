@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 class RootView: UIViewController {
 
@@ -25,8 +26,14 @@ class RootView: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        self.title = "State Farm Events"
+        self.title = "SF Events"
         
+        if (PFUser.currentUser() != nil)
+        {
+            let viewController:UIViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("Home") as! UIViewController
+            
+            self.presentViewController(viewController, animated: false, completion: nil)
+        }
     }
 
     /*

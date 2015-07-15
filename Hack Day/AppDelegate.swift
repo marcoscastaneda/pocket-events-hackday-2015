@@ -27,11 +27,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().shadowImage = UIImage.new()
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         UINavigationBar.appearance().barTintColor = GlobalStyles.Colors.stateFarmRed
+        UINavigationBar.appearance().translucent = false
         
         UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName : GlobalStyles.Fonts.headerMainFont!, NSForegroundColorAttributeName : UIColor.whiteColor()]
         
         // Make status-bar white
         UIApplication.sharedApplication().statusBarStyle = .LightContent
+        
+        // Tab bar
+        UITabBarItem.appearance().setTitleTextAttributes([ NSFontAttributeName: UIFont(name: "Helvetica Neue", size: 12)!], forState: UIControlState.Normal)
+        UITabBarItem.appearance().setTitleTextAttributes([ NSForegroundColorAttributeName : GlobalStyles.Colors.stateFarmRed], forState: UIControlState.Selected)
+        UITabBar.appearance().selectedImageTintColor = GlobalStyles.Colors.stateFarmRed
+        UITabBar.appearance().translucent = false
         
         return true
     }
