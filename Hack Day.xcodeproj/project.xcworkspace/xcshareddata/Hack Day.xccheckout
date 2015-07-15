@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>DB3AEF2B-D445-4916-A3DA-2DDBB9EB3F22</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Hack Day</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C83049A51AB8344A7A66777844BF4F6E761A054F</key>
+		<string>https://github.com/mcast323/Hack-Day-2015.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Hack Day.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C83049A51AB8344A7A66777844BF4F6E761A054F</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/mcast323/Hack-Day-2015.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C83049A51AB8344A7A66777844BF4F6E761A054F</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C83049A51AB8344A7A66777844BF4F6E761A054F</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Hack-Day-2015</string>
+		</dict>
+	</array>
+</dict>
+</plist>
