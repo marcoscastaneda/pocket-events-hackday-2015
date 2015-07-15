@@ -12,6 +12,9 @@ class RootView: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Remove back button text
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
 
         // Do any additional setup after loading the view.
     }
@@ -22,7 +25,7 @@ class RootView: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        self.title = "State Farm"
+        self.title = "State Farm Events"
         
     }
 

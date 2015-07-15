@@ -7,15 +7,32 @@
 //
 
 import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        Parse.enableLocalDatastore()
+        
+        // Initialize Parse.
+        Parse.setApplicationId("Wwp2460mVac5dKvjfnhH1k7qeqsrPTwZqG5Ir42q",
+            clientKey: "BxcQuPNigLreLpgHO87JzfN6w9R1l780f19vvSkV")
+        
+        UINavigationBar.appearance().barTintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().shadowImage = UIImage.new()
+        UINavigationBar.appearance().tintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().barTintColor = GlobalStyles.Colors.stateFarmRed
+        
+        UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName : GlobalStyles.Fonts.headerMainFont!, NSForegroundColorAttributeName : UIColor.whiteColor()]
+        
+        // Make status-bar white
+        UIApplication.sharedApplication().statusBarStyle = .LightContent
+        
         return true
     }
 
