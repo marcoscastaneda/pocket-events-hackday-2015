@@ -138,20 +138,30 @@
         <scene sceneID="I5h-jc-vSn">
             <objects>
                 <viewController id="FSL-5t-cCQ" customClass="NearbyView" customModule="Hack_Day" customModuleProvider="target" sceneMemberID="viewController">
-                    <mapView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" id="OkH-VV-SZ1">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ffo-b5-s7w"/>
+                        <viewControllerLayoutGuide type="bottom" id="XAn-Qi-Yvl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hhk-Gr-pDC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </mapView>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="VeJ-jC-JXr">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="5GR-UR-Paa"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="mapView" destination="OkH-VV-SZ1" id="Fis-Eg-fJx"/>
+                        <outlet property="mapView" destination="VeJ-jC-JXr" id="96m-U1-YTQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r6e-N9-w6b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1730.5" y="2014.5"/>
+            <point key="canvasLocation" x="1722.5" y="2014.5"/>
         </scene>
         <!--Settings Table View-->
         <scene sceneID="Vh9-My-gqi">
@@ -221,7 +231,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iWr-Hb-Knz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2194.5" y="1180.5"/>
+            <point key="canvasLocation" x="2781.5" y="1180.5"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="5SO-tE-6G6">
@@ -243,7 +253,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WAI-bs-40Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="863.5" y="1180.5"/>
+            <point key="canvasLocation" x="1450.5" y="1180.5"/>
         </scene>
         <!--Discover-->
         <scene sceneID="Q2H-Em-ZfT">
@@ -281,15 +291,15 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oKe-oi-eQn">
-                                            <rect key="frame" x="83" y="17" width="185" height="21"/>
+                                            <rect key="frame" x="76" y="17" width="185" height="21"/>
                                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8zD-7e-u6B">
-                                            <rect key="frame" x="83" y="36" width="128" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Category" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5h-eT-zS4">
+                                            <rect key="frame" x="76" y="66" width="139" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lwB-dM-lfL">
@@ -301,8 +311,14 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Countdown" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5h-eT-zS4">
-                                            <rect key="frame" x="83" y="61" width="191" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event Time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8zD-7e-u6B">
+                                            <rect key="frame" x="214" y="66" width="128" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Venue" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7lm-19-x2e">
+                                            <rect key="frame" x="76" y="39" width="232" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
@@ -315,10 +331,11 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="imageViewEvent" destination="lwB-dM-lfL" id="2g0-hQ-1Jg"/>
+                                    <outlet property="labelEventCategory" destination="L5h-eT-zS4" id="uKk-pQ-Bya"/>
                                     <outlet property="labelEventCount" destination="75P-8k-Fgb" id="Obz-6L-AHD"/>
-                                    <outlet property="labelEventCountdown" destination="L5h-eT-zS4" id="mvQ-sO-ame"/>
                                     <outlet property="labelEventTime" destination="8zD-7e-u6B" id="7a9-J5-3J9"/>
                                     <outlet property="labelEventTitle" destination="oKe-oi-eQn" id="faA-zm-ZLC"/>
+                                    <outlet property="labelEventVenue" destination="7lm-19-x2e" id="wfd-JS-Gab"/>
                                     <segue destination="YJg-Zg-a3R" kind="show" identifier="detailEvent" id="Llj-pq-0xl"/>
                                 </connections>
                             </tableViewCell>
@@ -330,8 +347,14 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="h6U-IU-jip">
                         <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" image="asset_filter.png" id="gl8-f6-Nt6">
+                            <color key="tintColor" red="0.80000000000000004" green="0.027450980390000001" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <segue destination="sAe-ff-mB3" kind="showDetail" id="Ex1-p8-Srq"/>
+                            </connections>
+                        </barButtonItem>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="voI-ky-qdK">
-                            <rect key="frame" x="57.5" y="7" width="260" height="30"/>
+                            <rect key="frame" x="64.5" y="7" width="260" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="Featured"/>
@@ -347,10 +370,150 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="barButtonFilter" destination="gl8-f6-Nt6" id="8yP-TA-LpK"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4cK-h0-WWT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="641.5" y="2014.5"/>
+        </scene>
+        <!--Filter Events View-->
+        <scene sceneID="Rur-Yn-afv">
+            <objects>
+                <viewController id="7GT-7D-nVH" customClass="FilterEventsView" customModule="Hack_Day" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5mn-8R-TNw"/>
+                        <viewControllerLayoutGuide type="bottom" id="rmr-oB-Tuv"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="1cd-Is-gGj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" alpha="0.44999999999999962" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0B1-hS-KwN">
+                                <rect key="frame" x="132" y="92" width="110" height="110"/>
+                                <color key="backgroundColor" red="0.80000000000000004" green="0.027450980390000001" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                <state key="normal" title="Entertainment">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="55"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="clickEntertain:" destination="7GT-7D-nVH" eventType="touchUpInside" id="Ra9-PC-qYD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" alpha="0.44999999999999962" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="84M-VE-IdW">
+                                <rect key="frame" x="255" y="92" width="110" height="110"/>
+                                <color key="backgroundColor" red="0.80000000000000004" green="0.027450980390000001" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                <state key="normal" title="Networking">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="55"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="clickNetworking:" destination="7GT-7D-nVH" eventType="touchUpInside" id="C8q-BH-AuA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" alpha="0.44999999999999962" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FQE-Mq-Wqv">
+                                <rect key="frame" x="9" y="92" width="110" height="110"/>
+                                <color key="backgroundColor" red="0.80000000000000004" green="0.027450980390000001" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                <state key="normal" title="Food/Drink">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="55"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="clickFood:" destination="7GT-7D-nVH" eventType="touchUpInside" id="q86-J0-CcM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" alpha="0.44999999999999962" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4AO-2Q-jIf">
+                                <rect key="frame" x="132" y="215" width="110" height="110"/>
+                                <color key="backgroundColor" red="0.80000000000000004" green="0.027450980390000001" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                <state key="normal" title="Sports">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="55"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="clickSports:" destination="7GT-7D-nVH" eventType="touchUpInside" id="N6m-sm-NwD"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" alpha="0.44999999999999962" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mHU-WJ-w80">
+                                <rect key="frame" x="9" y="215" width="110" height="110"/>
+                                <color key="backgroundColor" red="0.80000000000000004" green="0.027450980390000001" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                <state key="normal" title="Charity">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="55"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="clickCharity:" destination="7GT-7D-nVH" eventType="touchUpInside" id="Ih2-yB-hsH"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tap categories to add to your filter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdX-cS-5bO">
+                                <rect key="frame" x="13" y="10" width="348" height="50"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" alpha="0.44999999999999962" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ylf-sT-C1R">
+                                <rect key="frame" x="255" y="215" width="110" height="110"/>
+                                <color key="backgroundColor" red="0.80000000000000004" green="0.027450980390000001" blue="0.090196078430000007" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                <state key="normal" title="Social">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="55"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="clickSocial:" destination="7GT-7D-nVH" eventType="touchUpInside" id="JCQ-U1-uRb"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" id="pRP-as-hA0">
+                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="T4C-RT-EET">
+                            <connections>
+                                <action selector="closeView:" destination="7GT-7D-nVH" id="spx-hT-B8s"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="N55-8d-TPq"/>
+                    </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="va7-Da-JEZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="641.5" y="1240.5"/>
         </scene>
         <!--Add Event Table View-->
         <scene sceneID="MKi-xj-xnh">
@@ -367,6 +530,14 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VS6-9l-gab" id="A6X-un-0NQ">
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vjd-Pz-NX7">
+                                                    <rect key="frame" x="172" y="11" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="46K-Ki-Jr8">
@@ -395,10 +566,10 @@
             </objects>
             <point key="canvasLocation" x="641.5" y="2883.5"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Event Detail Table View-->
         <scene sceneID="7V7-mN-fua">
             <objects>
-                <tableViewController id="YJg-Zg-a3R" sceneMemberID="viewController">
+                <tableViewController id="YJg-Zg-a3R" customClass="EventDetailTableView" customModule="Hack_Day" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="AZI-Cm-fyR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -462,10 +633,29 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e4M-vi-LTB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1722.5" y="1180.5"/>
+            <point key="canvasLocation" x="2309.5" y="1180.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2mr-bv-cUq">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sAe-ff-mB3" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="yE3-Gf-zP2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="7GT-7D-nVH" kind="relationship" relationship="rootViewController" id="N9F-Kd-HKD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gcV-tm-6oT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="183.5" y="1240.5"/>
         </scene>
     </scenes>
     <resources>
+        <image name="asset_filter.png" width="25" height="25"/>
         <image name="tab_location.png" width="27" height="27"/>
         <image name="tab_me.png" width="27" height="27"/>
         <image name="tab_search.png" width="27" height="27"/>
