@@ -13,6 +13,11 @@
 		BD103C431B5716760017DF5A /* DiscoverTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD103C421B5716750017DF5A /* DiscoverTableView.swift */; };
 		BD103C451B5717250017DF5A /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD103C441B5717250017DF5A /* EventCell.swift */; };
 		BD103C481B572F000017DF5A /* EventDetailTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD103C471B572F000017DF5A /* EventDetailTableView.swift */; };
+		BD103C4B1B5741230017DF5A /* asset_filter@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD103C4A1B5741230017DF5A /* asset_filter@2x.png */; };
+		BD103C511B5748F50017DF5A /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD103C501B5748F50017DF5A /* Extension.swift */; };
+		BD103C531B574E960017DF5A /* FilterEventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD103C521B574E960017DF5A /* FilterEventsView.swift */; };
+		BD103C5A1B575E9C0017DF5A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD103C591B575E9C0017DF5A /* Info.plist */; };
+		BD103C5B1B575E9C0017DF5A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BD103C591B575E9C0017DF5A /* Info.plist */; };
 		BDE3DC191B56999F0007F9DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE3DC181B56999F0007F9DA /* AppDelegate.swift */; };
 		BDE3DC1E1B56999F0007F9DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDE3DC1C1B56999F0007F9DA /* Main.storyboard */; };
 		BDE3DC201B56999F0007F9DA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDE3DC1F1B56999F0007F9DA /* Images.xcassets */; };
@@ -64,14 +69,16 @@
 		BD103C421B5716750017DF5A /* DiscoverTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverTableView.swift; sourceTree = "<group>"; };
 		BD103C441B5717250017DF5A /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		BD103C471B572F000017DF5A /* EventDetailTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailTableView.swift; sourceTree = "<group>"; };
+		BD103C4A1B5741230017DF5A /* asset_filter@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "asset_filter@2x.png"; sourceTree = "<group>"; };
+		BD103C501B5748F50017DF5A /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		BD103C521B574E960017DF5A /* FilterEventsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterEventsView.swift; sourceTree = "<group>"; };
+		BD103C591B575E9C0017DF5A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDE3DC131B56999F0007F9DA /* Hack Day.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hack Day.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BDE3DC171B56999F0007F9DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDE3DC181B56999F0007F9DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BDE3DC1D1B56999F0007F9DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BDE3DC1F1B56999F0007F9DA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BDE3DC221B56999F0007F9DA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		BDE3DC281B5699A00007F9DA /* Hack DayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Hack DayTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BDE3DC2D1B5699A00007F9DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDE3DC2E1B5699A00007F9DA /* Hack_DayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hack_DayTests.swift; sourceTree = "<group>"; };
 		BDE3DC3C1B56B9770007F9DA /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		BDE3DC3E1B56B97B0007F9DA /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
@@ -153,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				BD103C421B5716750017DF5A /* DiscoverTableView.swift */,
+				BD103C521B574E960017DF5A /* FilterEventsView.swift */,
 				BD103C471B572F000017DF5A /* EventDetailTableView.swift */,
 				BD103C3E1B57052F0017DF5A /* AddEventTableView.swift */,
 			);
@@ -189,6 +197,7 @@
 				BDE3DC1F1B56999F0007F9DA /* Images.xcassets */,
 				BDE3DC211B56999F0007F9DA /* LaunchScreen.xib */,
 				BDE3DC571B56BA8E0007F9DA /* GlobalStyles.swift */,
+				BD103C501B5748F50017DF5A /* Extension.swift */,
 				BDE3DC781B56D8B00007F9DA /* Assets */,
 				BDE3DC161B56999F0007F9DA /* Supporting Files */,
 			);
@@ -200,7 +209,6 @@
 			children = (
 				BDE3DC181B56999F0007F9DA /* AppDelegate.swift */,
 				BD103C3C1B56F9F50017DF5A /* UIImageEffects.swift */,
-				BDE3DC171B56999F0007F9DA /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -217,7 +225,7 @@
 		BDE3DC2C1B5699A00007F9DA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				BDE3DC2D1B5699A00007F9DA /* Info.plist */,
+				BD103C591B575E9C0017DF5A /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -264,6 +272,7 @@
 		BDE3DC781B56D8B00007F9DA /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				BD103C4A1B5741230017DF5A /* asset_filter@2x.png */,
 				BDE3DC7B1B56D9050007F9DA /* tab_location@2x.png */,
 				BDE3DC7D1B56D9560007F9DA /* tab_search@2x.png */,
 				BDE3DC7F1B56D9C50007F9DA /* tab_me@2x.png */,
@@ -321,6 +330,7 @@
 				TargetAttributes = {
 					BDE3DC121B56999F0007F9DA = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = Y5Q9CABWG8;
 					};
 					BDE3DC271B5699A00007F9DA = {
 						CreatedOnToolsVersion = 6.4;
@@ -352,6 +362,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD103C5A1B575E9C0017DF5A /* Info.plist in Resources */,
+				BD103C4B1B5741230017DF5A /* asset_filter@2x.png in Resources */,
 				BDE3DC1E1B56999F0007F9DA /* Main.storyboard in Resources */,
 				BDE3DC231B56999F0007F9DA /* LaunchScreen.xib in Resources */,
 				BDE3DC201B56999F0007F9DA /* Images.xcassets in Resources */,
@@ -365,6 +377,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD103C5B1B575E9C0017DF5A /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,6 +388,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD103C531B574E960017DF5A /* FilterEventsView.swift in Sources */,
 				BDE3DC711B56CC1F0007F9DA /* SettingsTableView.swift in Sources */,
 				BD103C481B572F000017DF5A /* EventDetailTableView.swift in Sources */,
 				BDE3DC191B56999F0007F9DA /* AppDelegate.swift in Sources */,
@@ -383,6 +397,7 @@
 				BDE3DC5E1B56BD4E0007F9DA /* LoginView.swift in Sources */,
 				A592A8AD1B56B40000A0FDE5 /* RootView.swift in Sources */,
 				BD103C451B5717250017DF5A /* EventCell.swift in Sources */,
+				BD103C511B5748F50017DF5A /* Extension.swift in Sources */,
 				BD103C431B5716760017DF5A /* DiscoverTableView.swift in Sources */,
 				BDE3DC731B56CC2D0007F9DA /* NearbyView.swift in Sources */,
 				BD103C3F1B57052F0017DF5A /* AddEventTableView.swift in Sources */,
@@ -514,6 +529,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -521,6 +538,7 @@
 				INFOPLIST_FILE = "Hack Day/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Hack Day-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -531,6 +549,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -538,6 +558,7 @@
 				INFOPLIST_FILE = "Hack Day/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Hack Day-Bridging-Header.h";
 			};
 			name = Release;
