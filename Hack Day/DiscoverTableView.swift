@@ -242,6 +242,27 @@ class DiscoverTableView: UITableViewController {
             cell.labelEventCount.text = "\(attendanceCount)"
         }
         
+        let userImageFile = eventObject!["picture"] as? PFFile
+        
+        cell.imageViewEvent.layer.cornerRadius = cell.imageViewEvent.frame.size.height/2
+        cell.imageViewEvent.layer.masksToBounds = true
+        
+        if userImageFile != nil {
+            print("YES")
+            userImageFile!.getDataInBackgroundWithBlock {
+                (imageData: NSData?, error: NSError?) -> Void in
+                if error == nil {
+                    if let imageData = imageData {
+                        let image = UIImage(data:imageData)
+                        
+                        // Set circle image as image
+                        cell.imageViewEvent.image = image
+                    }
+                }
+            }
+        }
+
+        
         // "2014-07-23 11:01:35 -0700" <-- same date, local, but with seconds
         //
         // Configure the cell...
@@ -250,7 +271,7 @@ class DiscoverTableView: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.performSegueWithIdentifier("detailEvent", sender: nil)
+        self.performSegueWithIdentifier("eventDetail", sender: nil)
         print("pressed")
     }
     
