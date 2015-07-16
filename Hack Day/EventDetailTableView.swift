@@ -1,5 +1,5 @@
 //
-//  AddEventTableView.swift
+//  EventDetailTableView.swift
 //  Hack Day
 //
 //  Created by Marcos Castaneda on 7/15/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddEventTableView: UITableViewController {
+class EventDetailTableView: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
