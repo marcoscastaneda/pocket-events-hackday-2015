@@ -16,7 +16,11 @@ class NearbyView: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     
+<<<<<<< HEAD
     let regionRadius: CLLocationDistance = 5000
+=======
+    let regionRadius: CLLocationDistance = 400000
+>>>>>>> origin/master
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
             regionRadius * 2.0, regionRadius * 2.0)
@@ -30,7 +34,13 @@ class NearbyView: UIViewController, CLLocationManagerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+<<<<<<< HEAD
 
+=======
+        
+        print(locationManager.requestAlwaysAuthorization())
+        
+>>>>>>> origin/master
         // set initial location in Honolulu
         let initialLocation = CLLocation(latitude:40.473056, longitude:-88.958333)
         
@@ -42,6 +52,7 @@ class NearbyView: UIViewController, CLLocationManagerDelegate {
         let annotation = MKPointAnnotation()
         annotation.coordinate = CLLocationCoordinate2D(latitude:self.mapView.userLocation.coordinate.latitude, longitude:self.mapView.userLocation.coordinate.longitude)
         self.mapView.addAnnotation(annotation)
+<<<<<<< HEAD
         
         var event = Event(title: "Race for the Cure",
             locationName: "State Farm Park",
@@ -106,14 +117,43 @@ class NearbyView: UIViewController, CLLocationManagerDelegate {
         })
     }
 
+=======
+    }
+    
+    func locationManager(manager:CLLocationManager!, didUpdateLocations locations:[AnyObject]!){
+        
+        CLGeocoder().reverseGeocodeLocation(manager.location, completionHandler: { (placemarks, error) -> Void in
+            
+            if error != nil {
+                println("Error" + error.localizedDescription)
+                return
+            }
+            
+            if placemarks.count > 0
+            {
+                let pm = placemarks[0] as! CLPlacemark
+                self.displayLocationInfo(pm)
+            }
+            
+        })
+    }
+    
+>>>>>>> origin/master
     
     func displayLocationInfo(placemark: CLPlacemark){
         
         self.locationManager.stopUpdatingLocation()
+<<<<<<< HEAD
 //        println(placemark.locality)
 //        println(placemark.postalCode)
 //        println(placemark.administrativeArea)
 //        println(placemark.country)
+=======
+        println(placemark.locality)
+        println(placemark.postalCode)
+        println(placemark.administrativeArea)
+        println(placemark.country)
+>>>>>>> origin/master
         
     }
     
@@ -131,7 +171,7 @@ class NearbyView: UIViewController, CLLocationManagerDelegate {
     }
     
     override func viewDidAppear(animated: Bool) {
-
+        
     }
-
+    
 }

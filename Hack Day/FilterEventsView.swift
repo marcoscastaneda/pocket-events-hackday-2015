@@ -9,19 +9,31 @@
 import UIKit
 
 class FilterEventsView: UIViewController {
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> origin/master
     @IBOutlet var category: [UIButton]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> origin/master
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(animated: Bool) {
         self.title = "Customize Filter"
     }
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> origin/master
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -30,9 +42,12 @@ class FilterEventsView: UIViewController {
     @IBAction func closeView(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+<<<<<<< HEAD
     @IBAction func saveAction(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+=======
+>>>>>>> origin/master
     
     @IBAction func clickFood(sender: UIButton) {
         if (sender.alpha == 1.0)
@@ -104,6 +119,7 @@ class FilterEventsView: UIViewController {
     
     
     
+<<<<<<< HEAD
     
     /*
     // MARK: - Navigation
@@ -115,4 +131,17 @@ class FilterEventsView: UIViewController {
     }
     */
     
+=======
+
+    /*
+    // MARK: - Navigation
+
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    */
+
+>>>>>>> origin/master
 }

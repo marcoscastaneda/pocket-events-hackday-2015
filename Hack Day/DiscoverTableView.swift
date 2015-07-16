@@ -13,23 +13,38 @@ class DiscoverTableView: UITableViewController, UISearchBarDelegate {
     
     var isOnFeatured = true
     
+<<<<<<< HEAD
     @IBOutlet weak var searchBarTable: UISearchBar!
+=======
+>>>>>>> origin/master
     @IBOutlet var barButtonFilter: UIBarButtonItem!
     
     // Hold all the events
     var events: [PFObject]?
+<<<<<<< HEAD
     
     var trendingEvents = [PFObject]()
     var recommendedEvents = [PFObject]()
     var upcomingEvents: [PFObject]?
     
+=======
+
+    var trendingEvents = [PFObject]()
+    var recommendedEvents: [PFObject]?
+    var upcomingEvents: [PFObject]?
+
+>>>>>>> origin/master
     @IBAction func eventsChanged(sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0
         {
             self.navigationItem.setLeftBarButtonItem(nil, animated: true)
             
             isOnFeatured = true
+<<<<<<< HEAD
             //            print(isOnFeatured)
+=======
+//            print(isOnFeatured)
+>>>>>>> origin/master
             self.tableView.reloadData()
         }
         else
@@ -39,12 +54,20 @@ class DiscoverTableView: UITableViewController, UISearchBarDelegate {
             self.barButtonFilter.tintColor = UIColor.whiteColor()
             self.navigationItem.setLeftBarButtonItem(self.barButtonFilter, animated: true)
             self.tableView.reloadData()
+<<<<<<< HEAD
             //            print(isOnFeatured)
+=======
+//            print(isOnFeatured)
+>>>>>>> origin/master
         }
     }
     
     override func viewWillAppear(animated: Bool) {
+<<<<<<< HEAD
         self.tableView.contentOffset = CGPointMake(0, self.searchBarTable.frame.size.height);
+=======
+
+>>>>>>> origin/master
     }
     
     override func viewDidLoad() {
@@ -86,7 +109,11 @@ class DiscoverTableView: UITableViewController, UISearchBarDelegate {
         
         // Load ALL tasks
         var query = PFQuery(className:"Events")
+<<<<<<< HEAD
         query.orderByAscending("dateStart")
+=======
+        query.orderByDescending("dateAt")
+>>>>>>> origin/master
         query.findObjectsInBackgroundWithBlock {
             (objects: [AnyObject]?, error: NSError?) -> Void in
             
@@ -95,6 +122,23 @@ class DiscoverTableView: UITableViewController, UISearchBarDelegate {
                 
                 if let objects = objects as? [PFObject] {
                     self.events = objects
+
+//                    Failed algorithm
+                    var objectArray: NSArray = NSArray(array: objects)
+                    var descriptor: NSSortDescriptor = NSSortDescriptor(key: "attendanceCount", ascending: false)
+                    var sortedResults: NSArray = objectArray.sortedArrayUsingDescriptors([descriptor])
+                    
+                    self.trendingEvents.removeAll(keepCapacity: false)
+                    
+                    for object in sortedResults {
+                        var theCount = (object["attendanceCount"] as! NSNumber).integerValue
+                        
+                        // Logic for trending
+                        if (theCount > 30 && self.trendingEvents.count < 3)
+                        {
+                            self.trendingEvents.append(object as! PFObject)
+                        }
+                    }
                     
                     //                    Failed algorithm
                     var objectArray: NSArray = NSArray(array: objects)
@@ -133,6 +177,7 @@ class DiscoverTableView: UITableViewController, UISearchBarDelegate {
     {
         switch category
         {
+<<<<<<< HEAD
         case "sports":
             return "⚽️ Sports"
         case "entertainment":
@@ -145,11 +190,27 @@ class DiscoverTableView: UITableViewController, UISearchBarDelegate {
             return "💬 Networking"
         case "social":
             return "😃 Social"
+=======
+            case "sports":
+                return "⚽️ Sports"
+            case "entertainment":
+                return "🎤 Entertainment"
+            case "food":
+                return "🍴 Food/Drink"
+            case "charity":
+                return "🌈 Charity"
+            case "networking":
+                return "💬 Networking"
+>>>>>>> origin/master
         default:
             return ""
         }
     }
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> origin/master
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -186,7 +247,11 @@ class DiscoverTableView: UITableViewController, UISearchBarDelegate {
             return 0
         }
         
+<<<<<<< HEAD
         if (trendingEvents.isEmpty && section == 0)
+=======
+        if (trendingEvents.isEmpty)
+>>>>>>> origin/master
         {
             return 0
         }
@@ -197,11 +262,14 @@ class DiscoverTableView: UITableViewController, UISearchBarDelegate {
             {
                 return self.trendingEvents.count
             }
+<<<<<<< HEAD
             
             if (section == 1)
             {
                 return self.recommendedEvents.count
             }
+=======
+>>>>>>> origin/master
         }
         else {
             return events!.count
@@ -211,6 +279,7 @@ class DiscoverTableView: UITableViewController, UISearchBarDelegate {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+<<<<<<< HEAD
         let cell = tableView.dequeueReusableCellWithIdentifier("eventCell") as! EventCell
         
         var eventObject: PFObject?
@@ -259,6 +328,52 @@ class DiscoverTableView: UITableViewController, UISearchBarDelegate {
         cell.labelEventCategory.text = getCategory(eventObject!["category"] as! String)
         cell.labelEventVenue.text = eventObject!["venue"] as? String
         
+=======
+        let cell = tableView.dequeueReusableCellWithIdentifier("eventCell", forIndexPath: indexPath) as! EventCell
+    
+        var eventObject: PFObject?
+        
+        if (isOnFeatured)
+        {
+            if (indexPath.section == 0)
+            {
+                eventObject = self.trendingEvents[indexPath.row]
+            }
+            else
+            {
+                eventObject = self.events![indexPath.row]
+            }
+        }
+        else
+        {
+            eventObject = self.events![indexPath.row]
+        }
+        
+        var todayDate = NSDate()
+        
+        cell.labelEventTitle.text = eventObject!["title"] as? String
+        
+        if (NSDate.areDatesSameDay(todayDate, dateTwo: eventObject!["dateStart"] as! NSDate))
+        {
+            var formatter = NSDateFormatter();
+            formatter.dateFormat = "'Today', hh:mm a";
+            let defaultTimeZoneStr = formatter.stringFromDate((eventObject!["dateStart"] as!NSDate));
+            
+            cell.labelEventTime.text = defaultTimeZoneStr
+        }
+        else
+        {
+            var formatter = NSDateFormatter();
+            formatter.dateFormat = "MMMM d, hh:mm a";
+            let defaultTimeZoneStr = formatter.stringFromDate((eventObject!["dateStart"] as!NSDate));
+            
+            cell.labelEventTime.text = defaultTimeZoneStr
+        }
+        
+        cell.labelEventCategory.text = getCategory(eventObject!["category"] as! String)
+        cell.labelEventVenue.text = eventObject!["venue"] as? String
+        
+>>>>>>> origin/master
         let attendanceCount = (eventObject!["attendanceCount"] as? NSNumber)!.intValue
         
         if (attendanceCount > 30)
@@ -269,6 +384,7 @@ class DiscoverTableView: UITableViewController, UISearchBarDelegate {
         {
             cell.labelEventCount.text = "\(attendanceCount)"
         }
+<<<<<<< HEAD
         
         let userImageFile = eventObject!["picture"] as? PFFile
         
@@ -289,6 +405,8 @@ class DiscoverTableView: UITableViewController, UISearchBarDelegate {
             }
         }
 
+=======
+>>>>>>> origin/master
         
         // "2014-07-23 11:01:35 -0700" <-- same date, local, but with seconds
         //
@@ -298,6 +416,7 @@ class DiscoverTableView: UITableViewController, UISearchBarDelegate {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+<<<<<<< HEAD
         print("ZZ")
         var eventObject: PFObject?
         
@@ -320,6 +439,21 @@ class DiscoverTableView: UITableViewController, UISearchBarDelegate {
         {
             eventObject = self.events![indexPath.row]
         }
+=======
+        self.performSegueWithIdentifier("detailEvent", sender: nil)
+        print("pressed")
+    }
+    
+    override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if (isOnFeatured && section == 0)
+        {
+            return "Trending"
+        }
+        
+        return nil
+    }
+
+>>>>>>> origin/master
 
             
         self.performSegueWithIdentifier("eventDetail", sender: eventObject)
