@@ -30,6 +30,9 @@ class FilterEventsView: UIViewController {
     @IBAction func closeView(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    @IBAction func saveAction(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
     @IBAction func clickFood(sender: UIButton) {
         if (sender.alpha == 1.0)

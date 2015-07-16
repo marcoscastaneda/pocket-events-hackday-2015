@@ -16,6 +16,10 @@
 		BD103C431B5716760017DF5A /* DiscoverTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD103C421B5716750017DF5A /* DiscoverTableView.swift */; };
 		BD103C451B5717250017DF5A /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD103C441B5717250017DF5A /* EventCell.swift */; };
 		BD103C481B572F000017DF5A /* EventDetailTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD103C471B572F000017DF5A /* EventDetailTableView.swift */; };
+		BD4B17421B5797EE00E9F9B4 /* statefarmlogo.png in Resources */ = {isa = PBXBuildFile; fileRef = BD4B17411B5797EE00E9F9B4 /* statefarmlogo.png */; };
+		BD4B17441B57985900E9F9B4 /* bino_red.png in Resources */ = {isa = PBXBuildFile; fileRef = BD4B17431B57985900E9F9B4 /* bino_red.png */; };
+		BD4B17461B57FC7700E9F9B4 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD4B17451B57FC7700E9F9B4 /* Event.swift */; };
+		BD4B17481B58026300E9F9B4 /* tab_search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BD4B17471B58026300E9F9B4 /* tab_search@2x.png */; };
 		BDE3DC191B56999F0007F9DA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE3DC181B56999F0007F9DA /* AppDelegate.swift */; };
 		BDE3DC1E1B56999F0007F9DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDE3DC1C1B56999F0007F9DA /* Main.storyboard */; };
 		BDE3DC201B56999F0007F9DA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BDE3DC1F1B56999F0007F9DA /* Images.xcassets */; };
@@ -46,7 +50,6 @@
 		BDE3DC731B56CC2D0007F9DA /* NearbyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDE3DC721B56CC2D0007F9DA /* NearbyView.swift */; };
 		BDE3DC771B56D6D80007F9DA /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = BDE3DC761B56D6D80007F9DA /* MBProgressHUD.m */; };
 		BDE3DC7C1B56D9050007F9DA /* tab_location@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BDE3DC7B1B56D9050007F9DA /* tab_location@2x.png */; };
-		BDE3DC7E1B56D9560007F9DA /* tab_search@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BDE3DC7D1B56D9560007F9DA /* tab_search@2x.png */; };
 		BDE3DC801B56D9C50007F9DA /* tab_me@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BDE3DC7F1B56D9C50007F9DA /* tab_me@2x.png */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +73,10 @@
 		BD103C421B5716750017DF5A /* DiscoverTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverTableView.swift; sourceTree = "<group>"; };
 		BD103C441B5717250017DF5A /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		BD103C471B572F000017DF5A /* EventDetailTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventDetailTableView.swift; sourceTree = "<group>"; };
+		BD4B17411B5797EE00E9F9B4 /* statefarmlogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = statefarmlogo.png; sourceTree = "<group>"; };
+		BD4B17431B57985900E9F9B4 /* bino_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bino_red.png; sourceTree = "<group>"; };
+		BD4B17451B57FC7700E9F9B4 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		BD4B17471B58026300E9F9B4 /* tab_search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_search@2x.png"; sourceTree = "<group>"; };
 		BDE3DC131B56999F0007F9DA /* Hack Day.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hack Day.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDE3DC171B56999F0007F9DA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDE3DC181B56999F0007F9DA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -106,7 +113,6 @@
 		BDE3DC751B56D6D80007F9DA /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		BDE3DC761B56D6D80007F9DA /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		BDE3DC7B1B56D9050007F9DA /* tab_location@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_location@2x.png"; sourceTree = "<group>"; };
-		BDE3DC7D1B56D9560007F9DA /* tab_search@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_search@2x.png"; sourceTree = "<group>"; };
 		BDE3DC7F1B56D9C50007F9DA /* tab_me@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tab_me@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -196,6 +202,7 @@
 				BDE3DC1F1B56999F0007F9DA /* Images.xcassets */,
 				BDE3DC211B56999F0007F9DA /* LaunchScreen.xib */,
 				BDE3DC571B56BA8E0007F9DA /* GlobalStyles.swift */,
+				BD4B17451B57FC7700E9F9B4 /* Event.swift */,
 				A5CB5D031B57687F0043F79D /* Extension.swift */,
 				BDE3DC781B56D8B00007F9DA /* Assets */,
 				BDE3DC161B56999F0007F9DA /* Supporting Files */,
@@ -272,8 +279,10 @@
 		BDE3DC781B56D8B00007F9DA /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				BD4B17411B5797EE00E9F9B4 /* statefarmlogo.png */,
+				BD4B17431B57985900E9F9B4 /* bino_red.png */,
 				BDE3DC7B1B56D9050007F9DA /* tab_location@2x.png */,
-				BDE3DC7D1B56D9560007F9DA /* tab_search@2x.png */,
+				BD4B17471B58026300E9F9B4 /* tab_search@2x.png */,
 				BDE3DC7F1B56D9C50007F9DA /* tab_me@2x.png */,
 				A5CB5D051B5769C30043F79D /* asset_filter@2x.png */,
 			);
@@ -330,6 +339,7 @@
 				TargetAttributes = {
 					BDE3DC121B56999F0007F9DA = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = Y5Q9CABWG8;
 					};
 					BDE3DC271B5699A00007F9DA = {
 						CreatedOnToolsVersion = 6.4;
@@ -365,9 +375,11 @@
 				BDE3DC1E1B56999F0007F9DA /* Main.storyboard in Resources */,
 				BDE3DC231B56999F0007F9DA /* LaunchScreen.xib in Resources */,
 				BDE3DC201B56999F0007F9DA /* Images.xcassets in Resources */,
-				BDE3DC7E1B56D9560007F9DA /* tab_search@2x.png in Resources */,
+				BD4B17481B58026300E9F9B4 /* tab_search@2x.png in Resources */,
+				BD4B17421B5797EE00E9F9B4 /* statefarmlogo.png in Resources */,
 				BDE3DC801B56D9C50007F9DA /* tab_me@2x.png in Resources */,
 				BDE3DC7C1B56D9050007F9DA /* tab_location@2x.png in Resources */,
+				BD4B17441B57985900E9F9B4 /* bino_red.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,6 +401,7 @@
 				BD103C481B572F000017DF5A /* EventDetailTableView.swift in Sources */,
 				BDE3DC191B56999F0007F9DA /* AppDelegate.swift in Sources */,
 				BD103C3D1B56F9F50017DF5A /* UIImageEffects.swift in Sources */,
+				BD4B17461B57FC7700E9F9B4 /* Event.swift in Sources */,
 				BDE3DC581B56BA8E0007F9DA /* GlobalStyles.swift in Sources */,
 				A5CB5D021B5767D80043F79D /* FilterEventsView.swift in Sources */,
 				BDE3DC5E1B56BD4E0007F9DA /* LoginView.swift in Sources */,
@@ -526,6 +539,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -533,6 +548,7 @@
 				INFOPLIST_FILE = "Hack Day/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Hack Day-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -543,6 +559,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -550,6 +568,7 @@
 				INFOPLIST_FILE = "Hack Day/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Hack Day-Bridging-Header.h";
 			};
 			name = Release;

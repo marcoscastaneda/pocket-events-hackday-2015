@@ -9,17 +9,18 @@
 import UIKit
 import Parse
 
-class DiscoverTableView: UITableViewController {
+class DiscoverTableView: UITableViewController, UISearchBarDelegate {
     
     var isOnFeatured = true
     
+    @IBOutlet weak var searchBarTable: UISearchBar!
     @IBOutlet var barButtonFilter: UIBarButtonItem!
     
     // Hold all the events
     var events: [PFObject]?
     
     var trendingEvents = [PFObject]()
-    var recommendedEvents: [PFObject]?
+    var recommendedEvents = [PFObject]()
     var upcomingEvents: [PFObject]?
     
     @IBAction func eventsChanged(sender: UISegmentedControl) {
@@ -43,11 +44,13 @@ class DiscoverTableView: UITableViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        
+        self.tableView.contentOffset = CGPointMake(0, self.searchBarTable.frame.size.height);
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         self.queryEvents()
         
@@ -83,7 +86,7 @@ class DiscoverTableView: UITableViewController {
         
         // Load ALL tasks
         var query = PFQuery(className:"Events")
-        query.orderByDescending("dateAt")
+        query.orderByAscending("dateStart")
         query.findObjectsInBackgroundWithBlock {
             (objects: [AnyObject]?, error: NSError?) -> Void in
             
@@ -99,9 +102,15 @@ class DiscoverTableView: UITableViewController {
                     var sortedResults: NSArray = objectArray.sortedArrayUsingDescriptors([descriptor])
                     
                     self.trendingEvents.removeAll(keepCapacity: false)
+                    self.recommendedEvents.removeAll(keepCapacity: false)
                     
                     for object in sortedResults {
                         var theCount = (object["attendanceCount"] as! NSNumber).integerValue
+                        
+                        if ((object["category"] as! String) == "sports")
+                        {
+                            self.recommendedEvents.append(object as! PFObject)
+                        }
                         
                         // Logic for trending
                         if (theCount > 30 && self.trendingEvents.count < 3)
@@ -131,9 +140,11 @@ class DiscoverTableView: UITableViewController {
         case "food":
             return "🍴 Food/Drink"
         case "charity":
-            return "🌈 Charity"
+            return "🌎 Charity"
         case "networking":
             return "💬 Networking"
+        case "social":
+            return "😃 Social"
         default:
             return ""
         }
@@ -159,6 +170,14 @@ class DiscoverTableView: UITableViewController {
         }
     }
     
+    override func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView //recast your view as a UITableViewHeaderFooterView
+        let color = UIColor(red: 90/255, green: 90/255, blue: 90/255, alpha: 1.0)
+        header.contentView.backgroundColor = color
+        header.textLabel.textColor = UIColor.whiteColor() //make the text white
+        header.alpha = 1.0
+    }
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
@@ -167,7 +186,7 @@ class DiscoverTableView: UITableViewController {
             return 0
         }
         
-        if (trendingEvents.isEmpty)
+        if (trendingEvents.isEmpty && section == 0)
         {
             return 0
         }
@@ -178,6 +197,11 @@ class DiscoverTableView: UITableViewController {
             {
                 return self.trendingEvents.count
             }
+            
+            if (section == 1)
+            {
+                return self.recommendedEvents.count
+            }
         }
         else {
             return events!.count
@@ -187,7 +211,7 @@ class DiscoverTableView: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("eventCell", forIndexPath: indexPath) as! EventCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("eventCell") as! EventCell
         
         var eventObject: PFObject?
         
@@ -196,6 +220,10 @@ class DiscoverTableView: UITableViewController {
             if (indexPath.section == 0)
             {
                 eventObject = self.trendingEvents[indexPath.row]
+            }
+            else if (indexPath.section == 1)
+            {
+                eventObject = self.recommendedEvents[indexPath.row]
             }
             else
             {
@@ -248,7 +276,6 @@ class DiscoverTableView: UITableViewController {
         cell.imageViewEvent.layer.masksToBounds = true
         
         if userImageFile != nil {
-            print("YES")
             userImageFile!.getDataInBackgroundWithBlock {
                 (imageData: NSData?, error: NSError?) -> Void in
                 if error == nil {
@@ -271,7 +298,31 @@ class DiscoverTableView: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        self.performSegueWithIdentifier("eventDetail", sender: nil)
+        print("ZZ")
+        var eventObject: PFObject?
+        
+        if (isOnFeatured)
+        {
+            if (indexPath.section == 0)
+            {
+                eventObject = self.trendingEvents[indexPath.row]
+            }
+            else if (indexPath.section == 1)
+            {
+                eventObject = self.recommendedEvents[indexPath.row]
+            }
+            else
+            {
+                eventObject = self.events![indexPath.row]
+            }
+        }
+        else
+        {
+            eventObject = self.events![indexPath.row]
+        }
+
+            
+        self.performSegueWithIdentifier("eventDetail", sender: eventObject)
         print("pressed")
     }
     
@@ -280,10 +331,29 @@ class DiscoverTableView: UITableViewController {
         {
             return "Trending"
         }
+        else if (isOnFeatured && section == 1)
+        {
+            return "Recommended"
+        }
         
         return nil
     }
     
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        // Get the new view controller using segue.destinationViewController.
+//        // Pass the selected object to the new view controller.
+//    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "eventDetail")
+        {
+            var nextController : EventDetailTableView = segue.destinationViewController as! EventDetailTableView
+            nextController.eventObject = sender as! PFObject
+        }
+    }
     
     /*
     // Override to support conditional editing of the table view.
@@ -317,16 +387,6 @@ class DiscoverTableView: UITableViewController {
     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
     // Return NO if you do not want the item to be re-orderable.
     return true
-    }
-    */
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
     }
     */
     

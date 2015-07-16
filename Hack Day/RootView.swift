@@ -26,7 +26,7 @@ class RootView: UIViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
-        self.title = "SF Events"
+        self.title = "Pocket Events"
         
         if (PFUser.currentUser() != nil)
         {

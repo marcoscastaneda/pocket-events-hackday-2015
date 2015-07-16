@@ -7,11 +7,67 @@
 //
 
 import UIKit
+import Parse
+import MapKit
+import CoreLocation
 
-class EventDetailTableView: UITableViewController {
+class EventDetailTableView: UITableViewController, CLLocationManagerDelegate {
+    
+    @IBOutlet weak var buttonAttend: UIButton!
+    @IBOutlet weak var buttonInvite: UIButton!
+    
+    let greenColor = UIColor(red: 43/255, green: 162/255, blue: 58/255, alpha: 1.0)
+    
+//    @IBOutlet weak var mapView: MKMapView!
+    
+    @IBOutlet weak var mapView: MKMapView!
+    let locationManager = CLLocationManager()
+    
+    @IBOutlet weak var labelAttending: UILabel!
+    @IBOutlet weak var labelEventTime: UILabel!
+    @IBOutlet weak var labelEventTitle: UILabel!
+    @IBOutlet weak var labelEventVenue: UILabel!
+    @IBOutlet weak var labelEventDescription: UILabel!
+    
+    let regionRadius: CLLocationDistance = 3000
+    func centerMapOnLocation(location: CLLocation) {
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
+            regionRadius * 2.0, regionRadius * 2.0)
+        mapView.setRegion(coordinateRegion, animated: true)
+    }
+    
+    var eventObject: PFObject!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Remove seperators for empty cells
+        tableView.tableFooterView = UIView(frame: CGRectZero)
+        
+        locationManager.delegate = self
+//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+//        locationManager.requestWhenInUseAuthorization()
+//        locationManager.startUpdatingLocation()
+        
+        // set initial location in Honolulu
+        let initialLocation = CLLocation(latitude:40.473056, longitude:-88.958333)
+        
+        mapView.showsUserLocation = false
+//        mapView.userInteractionEnabled = false
+        centerMapOnLocation(initialLocation)
+        
+        // Do any additional setup after loading the view.
+        
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = CLLocationCoordinate2D(latitude:self.mapView.userLocation.coordinate.latitude, longitude:self.mapView.userLocation.coordinate.longitude)
+        self.mapView.addAnnotation(annotation)
+        
+        let event = Event(title: eventObject!["title"] as! String,
+            locationName: eventObject!["venue"] as! String,
+            discipline: "Sculpture",
+            coordinate: CLLocationCoordinate2D(latitude: 40.473056, longitude: -88.958333))
+        
+        mapView.addAnnotation(event)
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -19,79 +75,66 @@ class EventDetailTableView: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
+    
+    func updateAttendance()
+    {
+        let attendanceCount = (eventObject!["attendanceCount"] as? NSNumber)!.intValue
+        self.labelAttending.text = "\(attendanceCount)"
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.title = eventObject!["title"] as? String
+        
+        self.labelEventTitle.text = eventObject!["title"] as? String
+        self.labelEventVenue.text = eventObject!["venue"] as? String
+        self.labelEventDescription.text = eventObject!["description"] as? String
+        
+        self.updateAttendance()
+        
+        var formatter = NSDateFormatter();
+        formatter.dateFormat = "MMMM d, hh:mm a";
+        let defaultTimeZoneStr = formatter.stringFromDate((eventObject!["dateStart"] as!NSDate));
+        
+        self.labelEventTime.text = defaultTimeZoneStr
+        
+        self.buttonAttend.layer.borderWidth = 1.2
+        self.buttonAttend.layer.borderColor = greenColor.CGColor
+        self.buttonAttend.backgroundColor = UIColor.clearColor()
+        self.buttonAttend.setTitleColor(greenColor, forState: UIControlState.Normal)
+    }
+    
+    @IBAction func attendingAction(sender: AnyObject) {
+        if (self.buttonAttend.backgroundColor == UIColor.clearColor())
+        {
+            let attendanceCount = (eventObject!["attendanceCount"] as? NSNumber)!.intValue
+            
+            self.eventObject!["attendanceCount"] = NSNumber(int: (attendanceCount+1))
+            self.updateAttendance()
+            
+            self.eventObject.saveInBackgroundWithBlock({ (success: Bool, error: NSError?) -> Void in
+//
+            })
+            
+            self.buttonAttend.backgroundColor = greenColor
+            self.buttonAttend.setTitleColor(UIColor.whiteColor(), forState: UIControlState.Normal)
+        }
+        else
+        {
+            let attendanceCount = (eventObject!["attendanceCount"] as? NSNumber)!.intValue
+            
+            self.eventObject!["attendanceCount"] = NSNumber(int: (attendanceCount-1))
+            self.updateAttendance()
+            
+            self.buttonAttend.backgroundColor = UIColor.clearColor()
+            self.buttonAttend.setTitleColor(greenColor, forState: UIControlState.Normal)
+        }
+    }
+    
+    @IBAction func inviteFriends(sender: AnyObject) {
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 0
-    }
-
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
-        return 0
-    }
-
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as! UITableViewCell
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

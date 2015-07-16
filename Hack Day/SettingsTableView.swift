@@ -69,7 +69,7 @@ class SettingsTableView: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        if (indexPath.row == 1)
+        if (indexPath.row == 5)
         {
             self.logOut()
         }

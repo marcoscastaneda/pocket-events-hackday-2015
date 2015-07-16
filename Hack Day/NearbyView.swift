@@ -16,7 +16,7 @@ class NearbyView: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var mapView: MKMapView!
     
-    let regionRadius: CLLocationDistance = 400000
+    let regionRadius: CLLocationDistance = 5000
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
             regionRadius * 2.0, regionRadius * 2.0)
@@ -30,9 +30,9 @@ class NearbyView: UIViewController, CLLocationManagerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-        
+
         // set initial location in Honolulu
-        let initialLocation = CLLocation(latitude:40.493056, longitude:-88.988333)
+        let initialLocation = CLLocation(latitude:40.473056, longitude:-88.958333)
         
         mapView.showsUserLocation = true
         centerMapOnLocation(initialLocation)
@@ -42,6 +42,50 @@ class NearbyView: UIViewController, CLLocationManagerDelegate {
         let annotation = MKPointAnnotation()
         annotation.coordinate = CLLocationCoordinate2D(latitude:self.mapView.userLocation.coordinate.latitude, longitude:self.mapView.userLocation.coordinate.longitude)
         self.mapView.addAnnotation(annotation)
+        
+        var event = Event(title: "Race for the Cure",
+            locationName: "State Farm Park",
+            discipline: "Sculpture",
+            coordinate: CLLocationCoordinate2D(latitude: 40.493056, longitude: -88.958333)
+        )
+        
+        var event2 = Event(title: "Car Wash Event",
+            locationName: "Exxon Gas Station",
+            discipline: "Sculpture",
+            coordinate: CLLocationCoordinate2D(latitude: 40.503056, longitude: -88.968333)
+        )
+        
+        var event3 = Event(title: "Golf Tournament",
+            locationName: "Bloomington Golf Club",
+            discipline: "Sculpture",
+            coordinate: CLLocationCoordinate2D(latitude: 40.483056, longitude: -88.968333)
+        )
+        
+        var event31 = Event(title: "Ultimate Frisbee",
+            locationName: "State Farm Park",
+            discipline: "Sculpture",
+            coordinate: CLLocationCoordinate2D(latitude: 40.463056, longitude: -88.968333)
+        )
+        
+        var event4 = Event(title: "Anna's 50th Anniversary",
+            locationName: "State Farm Park",
+            discipline: "Sculpture",
+            coordinate: CLLocationCoordinate2D(latitude: 40.453056, longitude: -88.938333)
+        )
+        
+        var event5 = Event(title: "Biking at the Trails",
+            locationName: "State Farm Park",
+            discipline: "Sculpture",
+            coordinate: CLLocationCoordinate2D(latitude: 40.473056, longitude: -88.948333)
+        )
+        
+        
+        mapView.addAnnotation(event)
+        mapView.addAnnotation(event2)
+        mapView.addAnnotation(event3)
+        mapView.addAnnotation(event4)
+        mapView.addAnnotation(event5)
+        mapView.addAnnotation(event31)
     }
     
     func locationManager(manager:CLLocationManager!, didUpdateLocations locations:[AnyObject]!){
@@ -66,10 +110,10 @@ class NearbyView: UIViewController, CLLocationManagerDelegate {
     func displayLocationInfo(placemark: CLPlacemark){
         
         self.locationManager.stopUpdatingLocation()
-        println(placemark.locality)
-        println(placemark.postalCode)
-        println(placemark.administrativeArea)
-        println(placemark.country)
+//        println(placemark.locality)
+//        println(placemark.postalCode)
+//        println(placemark.administrativeArea)
+//        println(placemark.country)
         
     }
     
